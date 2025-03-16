@@ -9,14 +9,8 @@ export class CreditCardPayment implements Payment{
         this.limit = limit;
     }
 
-    payment(cardNumber:string,amount:number):void{
-        if(cardNumber === this.cardNumber){
-            this.pay(amount)
-        }
-    }
-
-    pay(amount: number): void {
-        if(this.limit >= amount){
+    pay(card:string,amount: number): void {
+        if(this.limit >= amount && card === this.cardNumber){
             this.limit -= amount;
             console.log("ชำระเงินสำเร็จ");
             return;

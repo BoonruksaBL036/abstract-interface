@@ -6,13 +6,8 @@ class PayPalPayment {
         this.phoneNumber = phoneNumber;
         this.limit = limit;
     }
-    payment(phoneNumber, amount) {
-        if (phoneNumber === this.phoneNumber) {
-            this.pay(amount);
-        }
-    }
-    pay(amount) {
-        if (this.limit >= amount) {
+    pay(phone, amount) {
+        if (this.limit >= amount && phone === this.phoneNumber) {
             this.limit -= amount;
             console.log("ชำระเงินสำเร็จ");
             return;
